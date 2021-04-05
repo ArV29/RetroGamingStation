@@ -24,7 +24,7 @@ function getImages() {
     colors = ["Day", "Forest", "Moon", "Night"]
     bgImg.src = "Assets/Sprites/Backgrounds/background_" + colors[getRandomInt(0, 3)] + ".png"
     colors = ["Day", "Night"]
-    baseImg.src = "Assets/Sprites/Bases/background_" + colors[getRandomInt(0, 1)] + ".png"
+    baseImg.src = "Assets/Sprites/Bases/" + colors[getRandomInt(0, 1)] + ".png"
     colors = ["blue", "red", "green"]
     var pipeColor = colors[getRandomInt(0, 2)]
     pipeImg[0].src = "Assets/Sprites/Pipes/pipeTop_" + pipeColor + ".png"
@@ -38,15 +38,26 @@ var gap = 60
 
 
 var constant = pipeImg[0].height + gap
-console.log(pipeImg[0].height)
+console.log()
+console.log(baseImg)
 function drawImg(image, x, y) {
     image.onload = function () {
         ctx.drawImage(image, x, y)
     }
 }
+var birdIterator = 1
 function draw() {
+    
     drawImg(bgImg, 0, 0)
     drawImg(pipeImg[0], 100, 0)
     drawImg(pipeImg[1], 100, constant)
+    
+    drawImg(baseImg, 0, 450)
+    drawImg(birdImg[birdIterator], 50, 250)
+    birdIterator++
+    if (birdIterator == 4) {
+        birdIterator = 0
+    }
+    requestAnimationFrame(draw)
 }
 draw()

@@ -5,6 +5,13 @@ function getRandomInt(min, max) {
 }
 
 
+function generatePipes() {
+    var y = getRandomInt(-225, 0)
+    var x= 400
+    pipes.push({'x' : x, 'y': y})
+
+}
+
 
 var cvs = document.getElementById("canvas");
 var ctx = cvs.getContext("2d");
@@ -37,7 +44,7 @@ getImages()
 var gap = 100    
 
 
-var constant = pipeImg[0].height + gap
+var constant = 287+100
 console.log()
 console.log(baseImg)
 function drawImg(image, x, y) {
@@ -46,7 +53,9 @@ function drawImg(image, x, y) {
     }
 }
 var birdIterator = 1
-var pipes = [{ 'x': 400, 'y': -100 }]
+var pipes = []
+generatePipes()
+pipes.push({'x' : 600, 'y' : getRandomInt(-200, 0)})
 drawImg(bgImg, 0, 0)
 drawImg(pipeImg[0], pipes[0].x, 0)
 drawImg(pipeImg[1], pipes[0].x, constant)
@@ -54,13 +63,47 @@ drawImg(pipeImg[1], pipes[0].x, constant)
 drawImg(baseImg, 0, 450)
 drawImg(birdImg[birdIterator], 50, 250)
 var birdCounter = 0
+
+
+
+bird = {'x' : 100, 'y' : 250, 'velocity' : 1}
+gravity = 0.00001
+maxVelocity = 1.5
+
+gravity = 1
+document.addEventListener("keydown", moveUp);
+function moveUp(){
+    bird.velocity = -7.5
+}
+
+
+function collision(){
+    for (var index = 0; index < pipes.length; index++) {
+        if (pipes[index].x <= bird.x + 34 && pipes[index].x + 68>=bird.x){
+            console.log("here")
+            if(bird.y <= pipes[index].y  + 287 || bird.y + 24 >= pipes[index.y]+287+gap){
+                return true
+            }
+        }
+        
+        return false
+    }
+}
+
+
+
+
+
 function draw() {
     ctx.drawImage(bgImg, 0, 0)
-    ctx.drawImage(baseImg, 0, 450)
-    ctx.drawImage(pipeImg[0], pipes[0].x, pipes[0].y)
-    ctx.drawImage(pipeImg[1], pipes[0].x, constant + pipes[0].y)
-    
-    ctx.drawImage(birdImg[birdIterator], 50, 250)
+    for (let index = 0; index < pipes.length; index++) {
+        pipes[index].x--
+        ctx.drawImage(pipeImg[0], pipes[index].x, pipes[index].y)
+        ctx.drawImage(pipeImg[1], pipes[index].x, constant + pipes[index].y)
+
+    }
+    ctx.drawImage(baseImg, 0, 475)
+    ctx.drawImage(birdImg[birdIterator], bird.x, bird.y)
     birdCounter ++
     if (birdCounter == 10){
         birdIterator++
@@ -69,11 +112,37 @@ function draw() {
         }
         birdCounter =  0
     }
-    pipes[0].x -= 1
-    if(pipes[0].x <= 0){
-        pipes[0].x = 400
+    if(pipes[0].x == 0){
+        generatePipes()
+    }
+    else if(pipes[0].x == -68){
+        pipes.shift()
+    }
+    if (bird.y<0){
+        bird.y = 0
+    }
+    else if(bird.y<=450){
+      
+        bird.y+=bird.velocity
+    }
+    else if(bird.y >= 450 ){
+        bird.y = 450
+    }
+
+    if(bird.velocity < maxVelocity){
+        bird.velocity += gravity
+    }
+    var isColliding = collision()
+    if (isColliding){
+        console.log(bird)
+        console.log(pipes)
+        alert("Game Over")
+        location.reload()
     }
     
+
+    
     requestAnimationFrame(draw)
+    
 }
 draw()

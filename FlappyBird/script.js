@@ -80,8 +80,9 @@ function moveUp(){
 function collision(){
     for (var index = 0; index < pipes.length; index++) {
         if (pipes[index].x <= bird.x + 34 && pipes[index].x + 68>=bird.x){
-            console.log("here")
-            if(bird.y <= pipes[index].y  + 287 || bird.y + 24 >= pipes[index.y]+287+gap){
+            console.log('BirdY ' + (bird.y + 24) + 'Allowance' + (pipes[index].y + 287 + gap))
+
+            if(bird.y <= pipes[index].y  + 287 || (bird.y + 24) >= (pipes[index].y+287+gap)){
                 return true
             }
         }
@@ -91,7 +92,7 @@ function collision(){
 }
 
 
-
+var score = 0
 
 
 function draw() {
@@ -100,6 +101,9 @@ function draw() {
         pipes[index].x--
         ctx.drawImage(pipeImg[0], pipes[index].x, pipes[index].y)
         ctx.drawImage(pipeImg[1], pipes[index].x, constant + pipes[index].y)
+        if(pipes[index].x == 100+ 68){
+            score += 1
+        }
 
     }
     ctx.drawImage(baseImg, 0, 475)
@@ -139,6 +143,7 @@ function draw() {
         alert("Game Over")
         location.reload()
     }
+    document.getElementById('score').innerHTML = 'Score : ' + score
     
 
     

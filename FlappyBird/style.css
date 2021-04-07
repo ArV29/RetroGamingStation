@@ -1,0 +1,30 @@
+body {
+    width: 'device-width';
+    height: 'device-height';
+    background: linear-gradient(to top right, rgb(90, 165, 219), rgb(0, 53, 92)) no-repeat;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+canvas {
+    margin : 100px; 
+    align-self: center;
+    width: 400px;
+    height: 600px;
+    border-radius: 10px;
+    border: 5px solid aliceblue;
+}
+
+h1 {
+    color: lightgoldenrodyellow;
+    align-self: center;
+    font-size: 100px;
+    font-family: 'Gill Sans',
+        'Gill Sans MT',
+        Calibri,
+        'Trebuchet MS',
+        sans-serif;
+    margin : 0px;
+}

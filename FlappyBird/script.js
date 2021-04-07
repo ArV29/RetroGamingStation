@@ -34,7 +34,7 @@ function getImages() {
 }
 getImages()
 
-var gap = 60
+var gap = 100    
 
 
 var constant = pipeImg[0].height + gap
@@ -46,18 +46,34 @@ function drawImg(image, x, y) {
     }
 }
 var birdIterator = 1
+var pipes = [{ 'x': 400, 'y': -100 }]
+drawImg(bgImg, 0, 0)
+drawImg(pipeImg[0], pipes[0].x, 0)
+drawImg(pipeImg[1], pipes[0].x, constant)
+
+drawImg(baseImg, 0, 450)
+drawImg(birdImg[birdIterator], 50, 250)
+var birdCounter = 0
 function draw() {
+    ctx.drawImage(bgImg, 0, 0)
+    ctx.drawImage(baseImg, 0, 450)
+    ctx.drawImage(pipeImg[0], pipes[0].x, pipes[0].y)
+    ctx.drawImage(pipeImg[1], pipes[0].x, constant + pipes[0].y)
     
-    drawImg(bgImg, 0, 0)
-    drawImg(pipeImg[0], 100, 0)
-    drawImg(pipeImg[1], 100, constant)
-    
-    drawImg(baseImg, 0, 450)
-    drawImg(birdImg[birdIterator], 50, 250)
-    birdIterator++
-    if (birdIterator == 4) {
-        birdIterator = 0
+    ctx.drawImage(birdImg[birdIterator], 50, 250)
+    birdCounter ++
+    if (birdCounter == 10){
+        birdIterator++
+        if (birdIterator == 4) {
+            birdIterator = 0
+        }
+        birdCounter =  0
     }
+    pipes[0].x -= 1
+    if(pipes[0].x <= 0){
+        pipes[0].x = 400
+    }
+    
     requestAnimationFrame(draw)
 }
 draw()

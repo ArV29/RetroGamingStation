@@ -1,0 +1,28 @@
+body{
+    width :  100%;
+    height : 100% ;
+    background: linear-gradient(to top right, rgb(90, 165, 219), rgb(0, 53, 92)) no-repeat;
+    display: flex;
+    flex-direction: column;
+} 
+h1{
+    color : lightgoldenrodyellow;
+    align-self: center;
+    font-size: 100px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+a{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    align-self: center;
+    color : aliceblue;  
+}
+#games{
+    align-self: center;
+    display : flex;
+    flex-direction: row;
+}
+img{
+    border-radius: 50px;
+    border : 5px solid aliceblue;
+    margin : 20px;
+}

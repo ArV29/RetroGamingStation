@@ -151,7 +151,14 @@ function draw() {
         console.log(bird)
         console.log(pipes)
         alert("Game Over")
-        location.reload(false)
+        bird.y = 100
+        pipes= []
+        generatePipes() 
+        document.getElementById('score').innerHTML = 'Press Space To Reset'
+        started = false
+        return 
+
+
     }
     document.getElementById('score').innerHTML = 'Score : ' + score
     

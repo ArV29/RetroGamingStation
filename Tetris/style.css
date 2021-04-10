@@ -1,0 +1,55 @@
+#score {
+  display: inline-block;
+}
+
+div {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: monospace;
+  text-align: center;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+.homepage {
+    align-self: center;
+    margin-top: 50px;
+
+}
+
+button.homepage {
+    border-radius: 20px;
+    background: aliceblue;
+    color: rgb(0, 53, 92);
+}
+
+body {
+    width: 100%;
+    
+    background: rgb(0, 53, 92);
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: lightgoldenrodyellow;
+    align-self: center;
+    font-size: 10ex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+div{
+    background: rgb(0, 53, 92);
+    border: 2px solid rgb(0, 53, 92);
+    border-radius: 5px;
+    padding: 10px;
+        font-family: 'Gill Sans',
+        'Gill Sans MT',
+        Calibri,
+        'Trebuchet MS',
+        sans-serif;
+    color: lightgoldenrodyellow;
+
+
+}

@@ -86,9 +86,12 @@ function collision(){
                 return true
             }
         }
-        
-        return false
     }
+    if (bird.y+ 24 >= 475){
+        return true
+    }
+    return false
+
 }
 
 

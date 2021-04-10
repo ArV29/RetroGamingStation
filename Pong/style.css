@@ -1,0 +1,33 @@
+body{
+    background : rgb(0, 53, 92);
+    display : flex;
+    flex-direction: column;
+}
+#pong{
+    align-self: center;
+}
+h1 {
+    color: lightgoldenrodyellow;
+    align-self: center;
+    font-size: 10ex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+#score {
+    background: rgb(0, 53, 92);
+    border: 2px solid rgb(0, 53, 92);
+    border-radius: 5px;
+    padding: 10px;
+}
+div {
+    margin: 10px;
+    color: lightgoldenrodyellow;
+    align-self: center;
+    font-size: 25px;
+    font-family: 'Gill Sans',
+        'Gill Sans MT',
+        Calibri,
+        'Trebuchet MS',
+        sans-serif;
+
+
+}

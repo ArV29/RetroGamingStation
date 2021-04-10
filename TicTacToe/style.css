@@ -35,3 +35,14 @@ body {
     display: flex;
     flex-direction: column;
 }
+.homepage {
+    align-self: center;
+    margin-top: 50px;
+
+}
+
+button.homepage {
+    border-radius: 20px;
+    background: aliceblue;
+    color: rgb(0, 53, 92);
+}

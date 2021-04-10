@@ -69,11 +69,18 @@ var birdCounter = 0
 bird = {'x' : 100, 'y' : 250, 'velocity' : 1}
 gravity = 0.00001
 maxVelocity = 1.5
-
+var started= false
 gravity = 1
 document.addEventListener("keydown", moveUp);
 function moveUp(){
-    bird.velocity = -7.5
+    if (started){
+        bird.velocity = -7.5
+    }
+    else{
+        started = true
+        start()
+    }
+    
 }
 
 
@@ -153,4 +160,8 @@ function draw() {
     requestAnimationFrame(draw)
     
 }
-draw()
+
+function start(){
+
+    draw()
+}

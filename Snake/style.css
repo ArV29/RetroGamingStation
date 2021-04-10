@@ -62,3 +62,14 @@ h1 {
 #text{
     font-size : 20px;
 }
+.homepage {
+    align-self: center;
+    margin-top: 50px;
+
+}
+
+button.homepage {
+    border-radius: 20px;
+    background: aliceblue;
+    color: rgb(0, 53, 92);
+}

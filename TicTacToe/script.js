@@ -52,7 +52,7 @@ function checkWinning(){
         }
     if (winner!=""){
         alert( winner + " wins")
-        location.reload()
+        location.reload(true)
     }
     
 }
@@ -61,6 +61,6 @@ function checkWinning(){
 function checkComplete(){
     if (a1.textContent != "" && b1.textContent != "" && c1.textContent != "" && a2.textContent != "" && b2.textContent != "" && c2.textContent != "" && a3.textContent != "" && b3.textContent != "" && c3.textContent != ""){
         alert("Game Draw")
-        location.reload()
+        location.reload(true)
     }
 }

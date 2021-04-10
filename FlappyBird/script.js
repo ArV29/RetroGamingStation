@@ -144,7 +144,7 @@ function draw() {
         console.log(bird)
         console.log(pipes)
         alert("Game Over")
-        location.reload()
+        location.reload(true)
     }
     document.getElementById('score').innerHTML = 'Score : ' + score
     
